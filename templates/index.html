@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For My Favorite Sister ❤️ | Happy Raksha Bandhan</title>
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" content="A personal digital memory book, interactive game, and emotional surprise experience made with love.">
+    
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Touch action manipulation for responsive mobile taps -->
+    <style>
+        button, a, .clickable {
+            touch-action: manipulation;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Canvas for Confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Background Particle System -->
+    <div id="particle-container" class="particle-container"></div>
+
+    <!-- Music Control Header -->
+    <div class="header-controls">
+        <button id="music-btn" class="music-btn" aria-label="Toggle Background Music">
+            <span class="music-icon">🎵</span>
+            <span class="music-wave-bar bar-1"></span>
+            <span class="music-wave-bar bar-2"></span>
+            <span class="music-wave-bar bar-3"></span>
+        </button>
+    </div>
+
+    <!-- Progress Indicator Bar (Visible after Layer 0) -->
+    <div id="progress-bar-container" class="progress-bar-container hidden" aria-label="Surprise progress">
+        <div class="progress-line"></div>
+        <div class="progress-steps">
+            <div class="step-dot active" data-step="1" title="The Quiz">🌸</div>
+            <div class="step-dot" data-step="2" title="Memory Lane">🌸</div>
+            <div class="step-dot" data-step="3" title="The Challenge">🌸</div>
+            <div class="step-dot" data-step="4" title="A Message">🌸</div>
+            <div class="step-dot" data-step="5" title="The Rakhi">🌸</div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="app-container">
+        
+        <!-- LAYER 0: Welcome Screen -->
+        <section id="layer-0" class="story-layer active">
+            <div class="card glass-card welcome-card">
+                <div class="badge">Made with ❤️</div>
+                <h1 class="main-title">For My Favorite Sister ❤️</h1>
+                <p class="subtitle text-peach">A tiny surprise made just for you...</p>
+                <div class="gift-box-wrapper">
+                    <div class="floating-gift">🎁</div>
+                </div>
+                <button id="start-btn" class="btn btn-primary btn-bounce">
+                    Open Your Surprise ✨
+                </button>
+            </div>
+        </section>
+
+        <!-- LAYER 1: Quiz Layer -->
+        <section id="layer-1" class="story-layer">
+            <div class="card glass-card">
+                <h2 class="section-title">Okay... before we begin 😏</h2>
+                <p class="question-text">How well do you know your annoying brother?</p>
+                
+                <div class="options-container">
+                    <button class="btn btn-option" data-option="A">A. Very well 😎</button>
+                    <button class="btn btn-option" data-option="B">B. Unfortunately, too well 🙄</button>
+                    <button class="btn btn-option" data-option="C">C. I wish I didn't 😂</button>
+                    <button class="btn btn-option" data-option="D">D. Who is this brother you speak of?</button>
+                </div>
+
+                <!-- Playful Answer Feedback -->
+                <div id="quiz-feedback" class="quiz-feedback-box hidden">
+                    <p id="feedback-text"></p>
+                </div>
+
+                <div id="quiz-next-container" class="next-action-container hidden">
+                    <p class="proceed-text">Fine. You may proceed ❤️</p>
+                    <button id="to-layer-2-btn" class="btn btn-primary">
+                        Enter Our Story →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAYER 2: Memory Lane -->
+        <section id="layer-2" class="story-layer">
+            <div class="card glass-card memory-card-container">
+                <h2 class="section-title">A Few Pieces of Us ❤️</h2>
+                
+                <!-- Carousel Container -->
+                <div class="carousel-wrapper">
+                    <div class="carousel-inner" id="carousel-inner">
+                        <!-- Memories are dynamically loaded from JS -->
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="carousel-nav">
+                        <button id="carousel-prev" class="btn-circle" aria-label="Previous Memory">←</button>
+                        <span id="carousel-indicator">1 / 4</span>
+                        <button id="carousel-next" class="btn-circle" aria-label="Next Memory">→</button>
+                    </div>
+                </div>
+
+                <p class="memory-footer">Some memories don't need a reason to make us smile.</p>
+                <hr class="card-divider">
+                <p class="question-text">Ready for something slightly more dangerous? 😈</p>
+                
+                <button id="to-layer-3-btn" class="btn btn-primary">
+                    Show Me →
+                </button>
+            </div>
+        </section>
+
+        <!-- LAYER 3: The ₹10,000 Cash Trick -->
+        <section id="layer-3" class="story-layer">
+            <div class="card glass-card money-card-wrapper">
+                <div class="alert-badge">IMPORTANT QUESTION 🚨</div>
+                <h2 class="section-title">Choose Wisely</h2>
+                <p class="question-text">What would you like from your brother this Raksha Bandhan?</p>
+
+                <div class="trick-game-area" id="trick-game-area">
+                    <div class="trick-buttons-wrapper">
+                        <!-- Surprise Gift is the genuine path -->
+                        <button id="gift-btn" class="btn btn-gift-option">
+                            🎁 A Surprise Gift
+                        </button>
+                        
+                        <!-- Running away button -->
+                        <button id="cash-btn" class="btn btn-cash-option">
+                            💰 ₹10,000 Cash
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dynamic feedback messages as the button runs away -->
+                <div id="trick-bubble" class="trick-bubble hidden">
+                    <span id="trick-bubble-text">Are you sure? 👀</span>
+                </div>
+
+                <!-- Modal for Cash Winner -->
+                <div id="cash-win-modal" class="modal-overlay hidden">
+                    <div class="modal-content">
+                        <h3>Congratulations! 🎉</h3>
+                        <p class="win-headline">You have successfully won...</p>
+                        <p class="win-amount">₹0.00 😂</p>
+                        <p class="win-sub">Nice try, though. Maybe the surprise gift is a better option 👀</p>
+                        <button id="close-cash-modal" class="btn btn-primary">Okay, fair enough 🙄</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAYER 4: The Heartfelt Message -->
+        <section id="layer-4" class="story-layer">
+            <div class="card glass-card envelope-card">
+                <div class="envelope-top-heart">❤️</div>
+                <h2 class="section-title">Okay... jokes apart ❤️</h2>
+                
+                <!-- Typewriter Letter Container -->
+                <div class="letter-container">
+                    <div id="typewriter-content" class="letter-text">
+                        <!-- Heartfelt text will stream here character by character -->
+                    </div>
+                </div>
+
+                <div id="letter-next-container" class="next-action-container hidden">
+                    <p class="proceed-text">And that's not even the best part...</p>
+                    <button id="to-layer-5-btn" class="btn btn-primary btn-bounce">
+                        One Last Surprise ✨
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAYER 5: Final Greeting -->
+        <section id="layer-5" class="story-layer">
+            <div class="card glass-card greeting-card">
+                
+                <!-- Stunning SVG Rakhi design -->
+                <div class="rakhi-illustration-container">
+                    <svg class="svg-rakhi" viewBox="0 0 200 200" width="160" height="160">
+                        <defs>
+                            <radialGradient id="gold-grad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#fff3bf" />
+                                <stop offset="50%" stop-color="#fab005" />
+                                <stop offset="100%" stop-color="#e67e22" />
+                            </radialGradient>
+                            <radialGradient id="red-grad" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" stop-color="#ffc9c9" />
+                                <stop offset="70%" stop-color="#fa5252" />
+                                <stop offset="100%" stop-color="#c92a2a" />
+                            </radialGradient>
+                            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                                <feGaussianBlur stdDeviation="6" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                        <!-- Thread Left -->
+                        <path d="M 0 100 Q 50 80, 100 100" stroke="#fa5252" stroke-width="6" fill="none" stroke-dasharray="5,3" />
+                        <path d="M 0 100 Q 50 120, 100 100" stroke="#fab005" stroke-width="4" fill="none" />
+                        
+                        <!-- Thread Right -->
+                        <path d="M 100 100 Q 150 80, 200 100" stroke="#fa5252" stroke-width="6" fill="none" stroke-dasharray="5,3" />
+                        <path d="M 100 100 Q 150 120, 200 100" stroke="#fab005" stroke-width="4" fill="none" />
+                        
+                        <!-- Outer Golden Starburst / Rays -->
+                        <g transform="translate(100,100)">
+                            <g class="rakhi-rays">
+                                <polygon points="0,-75 10,-30 45,-45 30,-10 75,0 30,10 45,45 10,30 0,75 -10,30 -45,45 -30,10 -75,0 -30,-10 -45,-45 -10,-30" fill="url(#gold-grad)" filter="url(#glow)" />
+                                <polygon points="0,-60 8,-25 35,-35 25,-8 60,0 25,8 35,35 8,25 0,60 -8,25 -35,35 -25,8 -60,0 -25,-8 -35,-35 -8,-25" fill="#f03e3e" opacity="0.8"/>
+                            </g>
+                            <!-- Pearls Ring -->
+                            <circle cx="0" cy="0" r="42" stroke="#fff" stroke-width="3" stroke-dasharray="6,6" fill="none" />
+                            <!-- Inner Red Dial -->
+                            <circle cx="0" cy="0" r="32" fill="url(#red-grad)" />
+                            <!-- Center Golden Heart -->
+                            <path d="M 0 -12 C -6 -18, -16 -12, -16 -2 C -16 8, -4 14, 0 18 C 4 14, 16 8, 16 -2 C 16 -12, 6 -18, 0 -12 Z" fill="url(#gold-grad)" filter="url(#glow)" class="rakhi-heart-pulse" />
+                        </g>
+                    </svg>
+                </div>
+
+                <h1 class="congrats-title">Happy Raksha Bandhan,<br><span id="final-sister-name" class="sister-name-highlight">My Dear Sister</span> ❤️</h1>
+                
+                <div class="message-group">
+                    <p class="greet-text">No matter how much we grow up, I'll always be your annoying brother.</p>
+                    <p class="greet-text">And you'll always be my sister, my partner in crime, my occasional headache, and one of my favorite people. ❤️</p>
+                </div>
+
+                <div class="quote-box">
+                    <p class="quote-text">
+                        "Some bonds are not made by choice, they are made by life — and become the most beautiful part of it."
+                    </p>
+                </div>
+
+                <p class="memory-footer">Here's to all the memories we've made and all the ones still waiting for us.</p>
+                
+                <h3 class="final-wishes">Happy Raksha Bandhan ❤️</h3>
+
+                <button id="replay-btn" class="btn btn-secondary">
+                    Replay Our Story ↺
+                </button>
+            </div>
+            
+            <!-- Tiny Secret Easter Egg Trigger -->
+            <div class="easter-egg-wrapper">
+                <button id="easter-egg-btn" class="easter-egg-btn" aria-label="Secret Love">❤️</button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- HTML5 Audio Element -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="{{ url_for('static', filename='music/background.mp3') }}" type="audio/mpeg">
+    </audio>
+
+    <!-- Custom Script File -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
