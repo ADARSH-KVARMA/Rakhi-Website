@@ -17,74 +17,74 @@ const CONFIG = {
     memories: [
         {
             image: "/static/images/memory1.jpg",
-            title: "The Good Old Days",
-            year: "Childhood",
-            text: "No matter how much we argued over TV remotes, sharing toys, or who got the bigger slice of cake, looking back, those little moments are some of my absolute favorites."
+            title: "Purane Acche Din",
+            year: "Bachpan",
+            text: "Chahe hum TV remote ke liye kitna bhi ladein, toys share karein, ya kisko cake ka bada piece mila - piche mud kar dekhne par ye chhoti-chhoti baatein hi meri favorite hain."
         },
         {
             image: "/static/images/memory2.jpg",
-            title: "Our Family Adventures",
+            title: "Hamare Family Adventures",
             year: "2024",
-            text: "Remember that vacation where everything went slightly off-plan but we ended up laughing the entire time anyway? Adventures are always better with you around."
+            text: "Yaad hai wo vacation jahan sab kuch plan se thoda alag ho gaya tha par hum pure time haste rahe? Adventures hamesha tumhare sath hi best hote hain."
         },
         {
             image: "/static/images/memory3.jpg",
-            title: "Festival Celebrations",
+            title: "Festivals Ki Masti",
             year: "2022",
-            text: "Dressing up, stuffing ourselves with sweets, and tying the Rakhi. Year after year, this bond only grows stronger and more special."
+            text: "Taiyar hona, mithaiyan khana aur Rakhi baandhna. Saal-dar-saal, hamara ye bond aur strong aur special hota ja raha hai."
         },
         {
             image: "/static/images/memory4.jpg",
             title: "Partner In Crime",
-            year: "Always",
-            text: "For all the secrets kept, the shared jokes, the fights that lasted five minutes, and the times we stood up for each other. Here's to us, forever!"
+            year: "Hamesha",
+            text: "Sare secrets chhupane ke liye, shared jokes, 5-minute wali fights aur hamesha ek-dusre ke liye khade hone ke liye. Here's to us, forever!"
         }
     ],
 
     // 4. Childhood Guess Image (Layer 7)
     childhoodGuess: {
         image: "/static/images/childhood_guess.jpg",
-        question: "Can you guess what's happening here? 👀",
+        question: "Kya tum guess kar sakti ho yahan kya ho raha hai? 👀",
         options: [
-            "A. We were behaving normally",
-            "B. Something definitely went wrong",
-            "C. We found a Bhaloo"
+            "A. Hum bilkul normal behave kar rahe the",
+            "B. Pakka kuch na kuch gadbad thi",
+            "C. Hume ek Bhaloo mil gaya tha"
         ],
         correctAnswer: "C",
-        feedback: "Plot twist: It was probably C. 😂"
+        feedback: "Plot twist: Shayad ye C tha. 😂"
     },
 
     // 5. Things I Never Say Enough (Layer 10 Typewriter Letter)
     thingsNeverSaid: [
-        "I'm proud of you.",
-        "I appreciate you.",
-        "I'm glad I get to call you my sister.",
-        "And yes...",
-        "I secretly care about you a lot. Don't tell anyone. 😌"
+        "Mujhe tum par proud hai.",
+        "Main tumhari bahut respect karta hoon.",
+        "Mujhe khushi hai ki tum meri behen ho.",
+        "Aur haan...",
+        "Main secretly tumhari bahut care karta hoon. Kisi ko batana mat. 😌"
     ],
 
     // 6. Final Personalized Message (Layer 14 Letter)
     finalMessageParagraphs: [
-        "We've grown up. We've changed. Life will keep changing.",
-        "But no matter how old we get, I'll always be your brother.\n\nThe annoying one.\nThe protective one.\nThe one who will make fun of you.\nAnd hopefully, the one you can always count on.\n\nThank you for being part of so many of my favorite memories."
+        "Hum bade ho gaye hain. Hum badal gaye hain. Zindagi badalti rahegi.",
+        "Par hum chahe jitne bhi bade ho jayein, main hamesha tumhara bhai rahunga.\n\nAnnoying wala.\nProtective wala.\nJo tumhara mazaak udayega.\nAur jiske sath tum hamesha khush reh sakti ho.\n\nMere favorite memories ka part banne ke liye thank you."
     ],
 
     // 7. Climax Final Quote & Text
-    finalQuote: "Some bonds are written by destiny.\n\nOurs was written by life.\n\nAnd I'm really lucky it gave me you. ❤️",
+    finalQuote: "Kuch rishte kismat likhti hai.\n\nHamara rishta zindagi ne likha hai.\n\nAur main sach me lucky hoon ki mujhe tum mili. ❤️",
     finalWishesText: "Happy Raksha Bandhan, [Sister] ❤️",
 
     // 8. Funny Responses
     funnyResponses: [
-        "I knew you'd choose that 😂",
+        "Mujhe pata tha tum yahi chunogi 😂",
         "Interesting decision...",
-        "I'm judging you silently. 😌",
-        "Okay, I'll allow it.",
-        "That's exactly what I expected.",
-        "Mom would probably disagree. 😂"
+        "Main silently judge kar raha hoon. 😌",
+        "Chalo, thik hai. Allow kar deta hoon.",
+        "Maine bilkul yahi expect kiya tha.",
+        "Mummy toh shayad disagree karengi. 😂"
     ],
 
     // 9. Easter Egg Message (Secret Heart)
-    easterEggMessage: "Okay fine... \n\nOne more thing. \n\nYou are officially the best sister in the world. \n\nBut don't let this get to your head. 😌😂"
+    easterEggMessage: "Chalo theek hai...\n\nEk aur baat.\n\nTum officially duniya ki sabse best behen ho.\n\nPar ise apne dimaag par mat chadhne dena. 😌😂"
 };
 
 /**
@@ -390,7 +390,7 @@ function setupEventListeners() {
 
     // Progress bar anti-cheating warning
     document.getElementById("progress-bar-container").addEventListener("click", () => {
-        showFloatingToast("No cheating 😌 You have to experience the whole thing.");
+        showFloatingToast("No cheating! 😌 Puri story dekhni padegi.");
     });
 
     // Screen click particles triggers
@@ -413,19 +413,19 @@ function transitionToLayer(targetLayer) {
     if (targetLayer === 5) {
         needChapter = true;
         badgeText = "CHAPTER 2";
-        titleText = "The Memories ❤️";
+        titleText = "Yaadein ❤️";
     } else if (targetLayer === 9) {
         needChapter = true;
         badgeText = "CHAPTER 3";
-        titleText = "The Chaos 😂";
+        titleText = "Chaos aur Masti 😂";
     } else if (targetLayer === 12) {
         needChapter = true;
         badgeText = "CHAPTER 4";
-        titleText = "The Things I Never Say";
+        titleText = "Dil Ki Baat";
     } else if (targetLayer === 14) {
         needChapter = true;
         badgeText = "FINAL CHAPTER";
-        titleText = "For You ❤️";
+        titleText = "Khaas Tumhare Liye ❤️";
     }
 
     if (needChapter) {
@@ -644,16 +644,16 @@ function selectQuizOption(selectedButton) {
     let feedback = "";
     switch (selectedOption) {
         case "A":
-            feedback = "Hmm... confident. Let's see about that 👀";
+            feedback = "Hmm... bada confidence hai. Chalo dekhte hain 👀";
             break;
         case "B":
-            feedback = "Unfortunately for you, that's correct 😂";
+            feedback = "Unfortunately tumhare liye, ye bilkul sahi hai 😂";
             break;
         case "C":
-            feedback = "Fair enough. I understand. 😅";
+            feedback = "Chalo thik hai. Main samajh sakta hoon. 😅";
             break;
         case "D":
-            feedback = "ERROR 404: Sister pretending not to know brother. 🤖";
+            feedback = "ERROR 404: Behen apne bhai ko pehchanne se mana kar rahi hai. 🤖";
             break;
     }
 
@@ -737,7 +737,7 @@ function updateCarouselIndicator() {
 
 // Temporary tooltips on hover/hold memory photos
 window.triggerPhotoTooltip = function (element) {
-    showFloatingToast("You remember this one? ❤️");
+    showFloatingToast("Tumhe ye yaad hai? ❤️");
 };
 
 /**
@@ -757,11 +757,11 @@ function selectPollOption(selectedButton) {
 
     let feedback = "";
     if (selectedPoll === "me") {
-        feedback = "Finally! Some honesty. 😌";
+        feedback = "Finally! Thodi honesty dikhayi. 😌";
     } else if (selectedPoll === "you") {
-        feedback = "OBJECTION! This website has been hacked. 😂";
+        feedback = "OBJECTION! Ye website hack ho chuki hai. 😂";
     } else {
-        feedback = "The correct diplomatic answer. 🤝";
+        feedback = "Bilkul diplomatic answer diya. 🤝";
     }
 
     feedback += "\n\n" + getRandomFunnyResponse();
@@ -784,7 +784,7 @@ function handleCashButtonInteraction() {
         // Escaped completely
         const cashBtn = document.getElementById("cash-btn");
         cashBtn.style.display = "none";
-        showTrickBubble("₹10,000 has officially escaped. 🏃💨");
+        showTrickBubble("₹10,000 toh bhag gaya! 🏃💨");
         return;
     }
 
@@ -799,13 +799,13 @@ function handleCashButtonInteraction() {
     cashBtn.style.position = "absolute";
     cashBtn.style.zIndex = "40";
 
-    let message = "Are you sure? 👀";
+    let message = "Are you sure? Soch lo... 👀";
     if (cashButtonAttempts === 2) {
-        message = "Nice try 😂";
+        message = "Nice try 😂 Dobara try karo!";
     } else if (cashButtonAttempts === 3) {
-        message = "Your financial expectations are too high.";
+        message = "Tumhari financial expectations thodi zyada hain. 💸";
     } else if (cashButtonAttempts >= 4) {
-        message = "₹10,000 is currently unavailable due to 'brother's financial situation.' 😭";
+        message = "Bhai ki financial situation ki wajah se ₹10,000 temporary unavailable hai. 😭";
     }
 
     showTrickBubble(message);
@@ -864,19 +864,19 @@ function selectSentenceOption(selectedButton) {
     let feedback = "";
     switch (optType) {
         case "best":
-            feedback = "Hummm 🤔🤔.. Correct. But let's be real... I'm the best. 😂";
+            feedback = "Hummm 🤔🤔.. Sahi kaha. Par let's be real... Main sabse best hoon. 😂";
             break;
         case "annoying":
-            feedback = "Hey! Correct, but rude. 😂";
+            feedback = "Arre! Sahi hai, par ye thoda rude tha. 😂";
             break;
         case "partner":
-            feedback = "Always! 🍕";
+            feedback = "Hamesha! 🍕";
             break;
         case "hungry":
-            feedback = "Valid point. My motu kajal didi 🍟";
+            feedback = "Sahi baat hai. Meri motu kajal didi 🍟";
             break;
         case "all":
-            feedback = "Correct. Especially the annoying part. 😂";
+            feedback = "Bilkul correct. Especially annoying wala part. 😂";
             break;
     }
 
@@ -968,9 +968,9 @@ function runTruthDetector(selectedButton) {
 
     // Sequence progress checks
     setTimeout(() => {
-        statusText.textContent = "Checking childhood records...";
+        statusText.textContent = "Bachpan ke records check ho rahe hain...";
         setTimeout(() => {
-            statusText.textContent = "Consulting Mom...";
+            statusText.textContent = "Mummy se consult kiya ja raha hai...";
             setTimeout(() => {
                 // Done loading
                 loadingArea.classList.add("hidden");
@@ -978,11 +978,11 @@ function runTruthDetector(selectedButton) {
                 // Show result
                 let result = "";
                 if (answer === "yes") {
-                    result = "The Truth Detector says: 99.8% suspicious. 😂";
+                    result = "Truth Detector bolta hai: 99.8% suspicious case hai. 😂";
                 } else if (answer === "no") {
-                    result = "The Truth Detector says: 100% false statement detected. 🤥";
+                    result = "Truth Detector bolta hai: 100% jhoot pakda gaya hai. 🤥";
                 } else {
-                    result = "The Truth Detector says: Silence is admission of guilt. 😂";
+                    result = "Truth Detector bolta hai: Khamoshi ka matlab gunaah kabool hai. 😂";
                 }
 
                 const feedbackBox = document.getElementById("detector-feedback");
@@ -1012,13 +1012,13 @@ function selectSoundtrack(selectedCard) {
 
     let feedback = "";
     if (track === "chaos") {
-        feedback = "Chaos: A non-stop rollercoaster of fights, arguments, and screaming. Honestly, wouldn't have it any other way! 🎢😂";
+        feedback = "Chaos: Non-stop ladai-jhagda aur chillana. Sach bolu toh, iske bina maza nahi aata! 🎢😂";
     } else if (track === "comedy") {
-        feedback = "Comedy: Daily jokes, sharing memes, and roasting each other. Thank you for always laughing at my stupid jokes (or at least laughing at me). 💀";
+        feedback = "Comedy: Roz ke jokes, memes share karna aur ek dusre ko roast karna. Mere stupid jokes par hasne ke liye (ya mujhpar hasne ke liye) thank you. 💀";
     } else if (track === "memories") {
-        feedback = "Memories: Because somehow the smallest, most ordinary moments became the ones we remember most. ❤️";
+        feedback = "Yaadein: Kyunki kaise na kaise sabse chhoti aur aam baatein hi hamari sabse badi yaadein ban gayi. ❤️";
     } else {
-        feedback = "Growing Up: From sharing toys to sharing life advice. We grew up, but we'll always remain kids at heart when together. 🥹";
+        feedback = "Growing Up: Toys share karne se lekar life advice share karne tak. Hum bade ho gaye, par sath me hum wahi bacche rahenge. 🥹";
     }
 
     const feedbackBox = document.getElementById("soundtrack-feedback");
@@ -1109,16 +1109,16 @@ function selectBrotherOption(selectedButton) {
     let feedback = "";
     switch (opt) {
         case "perfect":
-            feedback = "Unfortunately, that model is currently out of stock. 😂";
+            feedback = "Sorry, wo wala model abhi out of stock hai. 😂";
             break;
         case "current":
-            feedback = "Aww. You made the correct choice. ❤️";
+            feedback = "Aww. Sahi decision liya tumne. ❤️";
             break;
         case "rich":
-            feedback = "So money DOES matter. 😭";
+            feedback = "Toh matlab paisa hi sab kuch hai tumhare liye. 😭";
             break;
         case "robot":
-            feedback = "ERROR: Too emotionally unavailable. 🤖";
+            feedback = "ERROR: Wo bahut emotionally unavailable hoga. 🤖";
             break;
     }
 
@@ -1149,16 +1149,16 @@ function selectTimeCard(selectedCard) {
     let feedback = "";
     switch (type) {
         case "childhood":
-            feedback = "Childhood: Back to when our biggest worry was who got to watch cartoons first. If only we knew how fast it would pass. 🥹";
+            feedback = "Bachpan: Jab hamari sabse badi chinta ye thi ki pehle cartoon kaun dekhega. Kaash hume pata hota ye kitni jaldi beet jayega. 🥹";
             break;
         case "school":
-            feedback = "School Days: Waking up early, packing bags, and sharing lunchboxes. Simple days, precious memories. 🏫";
+            feedback = "School ke Din: Subah jaldi uthna, bags pack karna aur lunch share karna. Kitne simple aur pyaare din the wo. 🏫";
             break;
         case "family":
-            feedback = "Family Trips: Backseat arguments, singing along to radio songs, and the inside jokes that only we understand. ✈️";
+            feedback = "Family Trips: Backseat par ladna, radio ke gaano par gana aur wo inside jokes jo sirf hum dono samajhte hain. ✈️";
             break;
         case "random":
-            feedback = "Everyday Days: Maybe we wouldn't change anything. Maybe we'd just stay there for five minutes longer. ❤️";
+            feedback = "Aam Din: Maybe hum kuch na badle. Bas wahan 5 minute aur reh sakein. ❤️";
             break;
     }
 
@@ -1188,7 +1188,7 @@ function handleSisterNoButtonInteraction() {
 
     const feedbackBox = document.getElementById("sister-feedback");
     const feedbackText = document.getElementById("sister-feedback-text");
-    feedbackText.textContent = "Nice attempt. We both know the answer. 😂";
+    feedbackText.textContent = "Acchi koshish thi. Hum dono ko pata hai answer kya hai. 😂";
     feedbackBox.classList.remove("hidden");
 
     // Jump to random coordinate inside buttons container
@@ -1213,7 +1213,7 @@ function selectSisterClimaxYes() {
 
     const feedbackBox = document.getElementById("sister-feedback");
     const feedbackText = document.getElementById("sister-feedback-text");
-    feedbackText.textContent = "Obviously. ❤️";
+    feedbackText.textContent = "Obviously! ❤️";
     feedbackBox.classList.remove("hidden");
 
     document.getElementById("sister-next-container").classList.remove("hidden");
