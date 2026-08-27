@@ -6,7 +6,7 @@
  */
 const CONFIG = {
     // 1. Sister's Name
-    sisterName: "Rakhi", // Change this to your sister's actual name
+    sisterName: "Kajal Didi", // Change this to your sister's actual name
 
     // 2. Brother's Name
     brotherName: "Adarsh", // Change this to your name
@@ -24,13 +24,13 @@ const CONFIG = {
         {
             image: "/static/images/memory2.jpg",
             title: "Our Family Adventures",
-            year: "2018",
+            year: "2024",
             text: "Remember that vacation where everything went slightly off-plan but we ended up laughing the entire time anyway? Adventures are always better with you around."
         },
         {
             image: "/static/images/memory3.jpg",
             title: "Festival Celebrations",
-            year: "2021",
+            year: "2022",
             text: "Dressing up, stuffing ourselves with sweets, and tying the Rakhi. Year after year, this bond only grows stronger and more special."
         },
         {
@@ -48,7 +48,7 @@ const CONFIG = {
         options: [
             "A. We were behaving normally",
             "B. Something definitely went wrong",
-            "C. Mom was about to get angry"
+            "C. We found a Bhaloo"
         ],
         correctAnswer: "C",
         feedback: "Plot twist: It was probably C. 😂"
@@ -635,14 +635,14 @@ function selectQuizOption(selectedButton) {
     quizAnswerSelected = true;
 
     const selectedOption = selectedButton.getAttribute("data-option");
-    
+
     // Select styling
     const options = document.querySelectorAll("#layer-2 .btn-option");
     options.forEach(opt => opt.classList.remove("selected"));
     selectedButton.classList.add("selected");
 
     let feedback = "";
-    switch(selectedOption) {
+    switch (selectedOption) {
         case "A":
             feedback = "Hmm... confident. Let's see about that 👀";
             break;
@@ -702,7 +702,7 @@ function loadMemories() {
 }
 
 // Graceful missing memory photo fallback
-window.handleMemoryImageError = function(imgElement, title) {
+window.handleMemoryImageError = function (imgElement, title) {
     const container = imgElement.parentElement;
     if (container) {
         container.innerHTML = `
@@ -726,7 +726,7 @@ function shiftCarousel(direction) {
 
     const container = document.getElementById("carousel-inner");
     container.style.transform = `translateX(-${currentMemoryIndex * 100}%)`;
-    
+
     updateCarouselIndicator();
 }
 
@@ -736,7 +736,7 @@ function updateCarouselIndicator() {
 }
 
 // Temporary tooltips on hover/hold memory photos
-window.triggerPhotoTooltip = function(element) {
+window.triggerPhotoTooltip = function (element) {
     showFloatingToast("You remember this one? ❤️");
 };
 
@@ -750,7 +750,7 @@ function selectPollOption(selectedButton) {
     pollAnswerSelected = true;
 
     const selectedPoll = selectedButton.getAttribute("data-poll");
-    
+
     const options = document.querySelectorAll(".poll-option");
     options.forEach(opt => opt.classList.remove("selected"));
     selectedButton.classList.add("selected");
@@ -792,7 +792,7 @@ function handleCashButtonInteraction() {
 
     const cashBtn = document.getElementById("cash-btn");
     const gameArea = document.getElementById("trick-game-area");
-    
+
     const areaRect = gameArea.getBoundingClientRect();
     const btnRect = cashBtn.getBoundingClientRect();
 
@@ -825,7 +825,7 @@ function handleCashButtonInteraction() {
 function showTrickBubble(message) {
     const bubble = document.getElementById("trick-bubble");
     const textSpan = document.getElementById("trick-bubble-text");
-    
+
     textSpan.textContent = message;
     bubble.classList.remove("hidden");
 
@@ -837,7 +837,7 @@ function showTrickBubble(message) {
 function resetCashButton() {
     cashButtonAttempts = 0;
     const cashBtn = document.getElementById("cash-btn");
-    
+
     cashBtn.style.display = "inline-flex";
     cashBtn.style.position = "static";
     cashBtn.style.left = "auto";
@@ -862,9 +862,9 @@ function selectSentenceOption(selectedButton) {
     selectedButton.classList.add("selected");
 
     let feedback = "";
-    switch(optType) {
+    switch (optType) {
         case "best":
-            feedback = "Correct. But let's be real... 😂";
+            feedback = "Hummm 🤔🤔.. Correct. But let's be real... I'm the best. 😂";
             break;
         case "annoying":
             feedback = "Hey! Correct, but rude. 😂";
@@ -873,7 +873,7 @@ function selectSentenceOption(selectedButton) {
             feedback = "Always! 🍕";
             break;
         case "hungry":
-            feedback = "Valid point. The fridge is empty. 🍟";
+            feedback = "Valid point. My motu kajal didi 🍟";
             break;
         case "all":
             feedback = "Correct. Especially the annoying part. 😂";
@@ -974,7 +974,7 @@ function runTruthDetector(selectedButton) {
             setTimeout(() => {
                 // Done loading
                 loadingArea.classList.add("hidden");
-                
+
                 // Show result
                 let result = "";
                 if (answer === "yes") {
@@ -984,7 +984,7 @@ function runTruthDetector(selectedButton) {
                 } else {
                     result = "The Truth Detector says: Silence is admission of guilt. 😂";
                 }
-                
+
                 const feedbackBox = document.getElementById("detector-feedback");
                 const feedbackText = document.getElementById("detector-feedback-text");
                 feedbackText.textContent = result;
@@ -1043,19 +1043,19 @@ function startTypewriterMessage() {
 
     fullTextToStream = CONFIG.thingsNeverSaid.join("\n\n");
     charIndex10 = 0;
-    
+
     function typeNextChar() {
         if (!typewriterActive) return;
 
         if (charIndex10 < fullTextToStream.length) {
             const char = fullTextToStream.charAt(charIndex10);
-            
+
             if (char === "\n") {
                 contentBox.appendChild(document.createElement("br"));
             } else {
                 contentBox.append(char);
             }
-            
+
             charIndex10++;
             contentBox.scrollTop = contentBox.scrollHeight;
 
@@ -1076,7 +1076,7 @@ function skipTypewriter() {
 
     const contentBox = document.getElementById("typewriter-content");
     contentBox.innerHTML = "";
-    
+
     CONFIG.thingsNeverSaid.forEach((pText) => {
         const p = document.createElement("p");
         p.textContent = pText;
@@ -1107,7 +1107,7 @@ function selectBrotherOption(selectedButton) {
     selectedButton.classList.add("selected");
 
     let feedback = "";
-    switch(opt) {
+    switch (opt) {
         case "perfect":
             feedback = "Unfortunately, that model is currently out of stock. 😂";
             break;
@@ -1147,7 +1147,7 @@ function selectTimeCard(selectedCard) {
     selectedCard.classList.add("selected");
 
     let feedback = "";
-    switch(type) {
+    switch (type) {
         case "childhood":
             feedback = "Childhood: Back to when our biggest worry was who got to watch cartoons first. If only we knew how fast it would pass. 🥹";
             break;
@@ -1250,7 +1250,7 @@ function startFinalRevealSequence() {
         setTimeout(() => {
             preRevealCard.classList.add("hidden");
             mainGreetingCard.classList.remove("hidden");
-            
+
             // Populate greeting messages
             document.getElementById("final-letter-p1").innerText = CONFIG.finalMessageParagraphs[0];
             document.getElementById("final-letter-p2").innerText = CONFIG.finalMessageParagraphs[1];
@@ -1353,11 +1353,11 @@ function startAmbientParticles() {
 
         const particle = document.createElement("span");
         particle.classList.add("ambient-particle");
-        
+
         // Configure random coordinates & styles
         particle.textContent = symbols[Math.floor(Math.random() * symbols.length)];
         particle.style.left = `${Math.random() * 100}vw`;
-        
+
         const size = Math.floor(Math.random() * 15) + 12; // 12px to 27px
         particle.style.fontSize = `${size}px`;
 
@@ -1392,7 +1392,7 @@ function spawnMicroParticle(e) {
     const particle = document.createElement("span");
     particle.textContent = emojiStr;
     particle.className = emojiStr === "✨" || emojiStr === "⭐" ? "micro-star" : "micro-heart";
-    
+
     // Position at coordinates
     particle.style.left = `${e.clientX - 10}px`;
     particle.style.top = `${e.clientY - 10}px`;
@@ -1412,7 +1412,7 @@ function showFloatingToast(text) {
     const toast = document.createElement("div");
     toast.className = "toast-alert";
     toast.innerText = text;
-    
+
     // Style toast on overlay
     Object.assign(toast.style, {
         position: "fixed",
@@ -1433,7 +1433,7 @@ function showFloatingToast(text) {
     });
 
     document.body.appendChild(toast);
-    
+
     // Force reflow
     void toast.offsetWidth;
     toast.style.opacity = "1";

@@ -1,27 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For My Favorite Sister ❤️ | Happy Raksha Bandhan</title>
     <!-- Meta Descriptions for SEO -->
-    <meta name="description" content="A personal digital memory book, interactive game, and emotional surprise experience made with love.">
-    
+    <meta name="description"
+        content="A personal digital memory book, interactive game, and emotional surprise experience made with love.">
+
     <!-- Google Fonts for premium typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    
+
     <!-- Touch action manipulation for responsive mobile taps -->
     <style>
-        button, a, .clickable {
+        button,
+        a,
+        .clickable {
             touch-action: manipulation;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Canvas for Confetti -->
@@ -53,7 +60,7 @@
 
     <!-- Main Container -->
     <main class="app-container">
-        
+
         <!-- LAYER 1: Welcome Screen -->
         <section id="layer-1" class="story-layer active">
             <div class="card glass-card welcome-card">
@@ -74,7 +81,7 @@
             <div class="card glass-card">
                 <h2 class="section-title">Okay... before we begin 😏</h2>
                 <p class="question-text">How well do you know your annoying brother?</p>
-                
+
                 <div class="options-container">
                     <button class="btn btn-option" data-option="A">A. Very well 😎</button>
                     <button class="btn btn-option" data-option="B">B. Unfortunately, too well 🙄</button>
@@ -100,13 +107,13 @@
         <section id="layer-3" class="story-layer">
             <div class="card glass-card memory-card-container">
                 <h2 class="section-title">A Few Pieces of Us ❤️</h2>
-                
+
                 <!-- Carousel Container -->
                 <div class="carousel-wrapper">
                     <div class="carousel-inner" id="carousel-inner">
                         <!-- Memories are dynamically loaded from JS -->
                     </div>
-                    
+
                     <!-- Navigation -->
                     <div class="carousel-nav">
                         <button id="carousel-prev" class="btn-circle" aria-label="Previous Memory">←</button>
@@ -118,7 +125,7 @@
                 <p class="memory-footer">Some memories don't need a reason to make us smile.</p>
                 <hr class="card-divider">
                 <p class="question-text">And we're only getting started...</p>
-                
+
                 <button id="to-layer-4-btn" class="btn btn-primary">
                     Show Me →
                 </button>
@@ -130,7 +137,7 @@
             <div class="card glass-card">
                 <h2 class="section-title">Be honest... 😏</h2>
                 <p class="question-text">Who is more annoying? 😂</p>
-                
+
                 <div class="poll-container options-container">
                     <button class="btn btn-option poll-option" data-poll="me">😇 Me</button>
                     <button class="btn btn-option poll-option" data-poll="you">😈 You</button>
@@ -163,7 +170,7 @@
                         <button id="gift-btn" class="btn btn-gift-option">
                             🎁 A mysterious surprise
                         </button>
-                        
+
                         <!-- Running away button -->
                         <button id="cash-btn" class="btn btn-cash-option">
                             💰 ₹10,000
@@ -182,7 +189,8 @@
                         <h3>Congratulations! 🎉</h3>
                         <p class="win-headline">You have successfully won...</p>
                         <p class="win-amount">₹0.00 😂</p>
-                        <p class="win-sub">Your financial expectations are too high. Maybe the surprise gift is a better option 👀</p>
+                        <p class="win-sub">Your financial expectations are too high. Maybe the surprise gift is a better
+                            option 👀</p>
                         <button id="close-cash-modal" class="btn btn-primary">Okay, fair enough 🙄</button>
                     </div>
                 </div>
@@ -194,12 +202,15 @@
             <div class="card glass-card">
                 <h2 class="section-title">Complete this sentence:</h2>
                 <p class="question-text">"My sister is ______."</p>
-                
+
                 <div class="options-container">
                     <button class="btn btn-option sentence-option" data-sentence="best">❤️ The Best</button>
-                    <button class="btn btn-option sentence-option" data-sentence="annoying">😂 Extremely Annoying</button>
-                    <button class="btn btn-option sentence-option" data-sentence="partner">😎 My Partner in Crime</button>
-                    <button class="btn btn-option sentence-option" data-sentence="hungry">🍕 Always Hungry</button>
+                    <button class="btn btn-option sentence-option" data-sentence="annoying">😂 Extremely
+                        Annoying</button>
+                    <button class="btn btn-option sentence-option" data-sentence="partner">😎 My Partner in
+                        Crime</button>
+                    <button class="btn btn-option sentence-option" data-sentence="hungry">🍕 Always Hungry
+                        (Motooo...)</button>
                     <button class="btn btn-option sentence-option" data-sentence="all">👑 All of the Above</button>
                 </div>
 
@@ -220,7 +231,7 @@
             <div class="card glass-card">
                 <h2 class="section-title">Guess the Memory 📸</h2>
                 <p class="question-text">Can you guess what's happening here? 👀</p>
-                
+
                 <!-- Blurred image wrapper -->
                 <div class="blurred-image-wrapper">
                     <div id="guess-image-container" class="guess-image-container blurred">
@@ -230,7 +241,8 @@
 
                 <div class="options-container" style="margin-top: 16px;">
                     <button class="btn btn-option guess-option" data-guess="A">A. We were behaving normally</button>
-                    <button class="btn btn-option guess-option" data-guess="B">B. Something definitely went wrong</button>
+                    <button class="btn btn-option guess-option" data-guess="B">B. Something definitely went
+                        wrong</button>
                     <button class="btn btn-option guess-option" data-guess="C">C. Mom was about to get angry</button>
                 </div>
 
@@ -251,7 +263,7 @@
             <div class="card glass-card">
                 <h2 class="section-title">Truth Detector 🕵️</h2>
                 <p class="question-text">Have you ever blamed me for something you actually did?</p>
-                
+
                 <div class="options-container detector-buttons">
                     <button class="btn btn-option detector-option" data-detector="yes">YES 😭</button>
                     <button class="btn btn-option detector-option" data-detector="no">NO 😇</button>
@@ -261,7 +273,8 @@
                 <!-- Fake loading/analysis screen -->
                 <div id="detector-loading" class="detector-loading-container hidden">
                     <div class="loading-dots">
-                        <span class="dot-loading">.</span><span class="dot-loading">.</span><span class="dot-loading">.</span>
+                        <span class="dot-loading">.</span><span class="dot-loading">.</span><span
+                            class="dot-loading">.</span>
                     </div>
                     <p id="detector-status-text" class="detector-status-text">Analyzing...</p>
                 </div>
@@ -284,7 +297,7 @@
             <div class="card glass-card">
                 <h2 class="section-title">Our Soundtrack 🎵</h2>
                 <p class="question-text">If our relationship had a soundtrack...</p>
-                
+
                 <!-- Soundtrack Cards Stack/Grid -->
                 <div class="soundtrack-grid">
                     <div class="soundtrack-card" data-soundtrack="chaos">
@@ -322,7 +335,7 @@
             <div class="card glass-card envelope-card">
                 <div class="envelope-top-heart">❤️</div>
                 <h2 class="section-title" id="layer-10-title">Things I probably don't say enough ❤️</h2>
-                
+
                 <!-- Typewriter Letter Container -->
                 <div class="letter-container">
                     <div id="typewriter-content" class="letter-text">
@@ -344,7 +357,7 @@
             <div class="card glass-card">
                 <h2 class="section-title">Choose Your Brother 🤖</h2>
                 <p class="question-text">If you could choose your brother again, who would you pick?</p>
-                
+
                 <div class="options-container">
                     <button class="btn btn-option brother-option" data-brother="perfect">😇 Perfect Brother</button>
                     <button class="btn btn-option brother-option" data-brother="current">😂 Current Brother</button>
@@ -369,7 +382,7 @@
             <div class="card glass-card">
                 <h2 class="section-title">The Time Machine ⏳</h2>
                 <p class="question-text">If we could go back to one moment...</p>
-                
+
                 <div class="time-machine-grid">
                     <div class="time-card" data-time="childhood">
                         <span class="time-icon">🌱</span>
@@ -406,7 +419,7 @@
             <div class="card glass-card last-question-wrapper">
                 <h2 class="section-title">One last question...</h2>
                 <p class="question-text">No matter where life takes us, will you always be my sister? ❤️</p>
-                
+
                 <div class="climax-buttons-container" id="climax-buttons-container">
                     <button id="sister-yes-btn" class="btn btn-primary">
                         Obviously ❤️
@@ -459,31 +472,41 @@
                             </filter>
                         </defs>
                         <!-- Thread Left -->
-                        <path d="M 0 100 Q 50 80, 100 100" stroke="#fa5252" stroke-width="6" fill="none" stroke-dasharray="5,3" />
+                        <path d="M 0 100 Q 50 80, 100 100" stroke="#fa5252" stroke-width="6" fill="none"
+                            stroke-dasharray="5,3" />
                         <path d="M 0 100 Q 50 120, 100 100" stroke="#fab005" stroke-width="4" fill="none" />
-                        
+
                         <!-- Thread Right -->
-                        <path d="M 100 100 Q 150 80, 200 100" stroke="#fa5252" stroke-width="6" fill="none" stroke-dasharray="5,3" />
+                        <path d="M 100 100 Q 150 80, 200 100" stroke="#fa5252" stroke-width="6" fill="none"
+                            stroke-dasharray="5,3" />
                         <path d="M 100 100 Q 150 120, 200 100" stroke="#fab005" stroke-width="4" fill="none" />
-                        
+
                         <!-- Outer Golden Starburst / Rays -->
                         <g transform="translate(100,100)">
                             <g class="rakhi-rays">
-                                <polygon points="0,-75 10,-30 45,-45 30,-10 75,0 30,10 45,45 10,30 0,75 -10,30 -45,45 -30,10 -75,0 -30,-10 -45,-45 -10,-30" fill="url(#gold-grad)" filter="url(#glow)" />
-                                <polygon points="0,-60 8,-25 35,-35 25,-8 60,0 25,8 35,35 8,25 0,60 -8,25 -35,35 -25,8 -60,0 -25,-8 -35,-35 -8,-25" fill="#f03e3e" opacity="0.8"/>
+                                <polygon
+                                    points="0,-75 10,-30 45,-45 30,-10 75,0 30,10 45,45 10,30 0,75 -10,30 -45,45 -30,10 -75,0 -30,-10 -45,-45 -10,-30"
+                                    fill="url(#gold-grad)" filter="url(#glow)" />
+                                <polygon
+                                    points="0,-60 8,-25 35,-35 25,-8 60,0 25,8 35,35 8,25 0,60 -8,25 -35,35 -25,8 -60,0 -25,-8 -35,-35 -8,-25"
+                                    fill="#f03e3e" opacity="0.8" />
                             </g>
                             <!-- Pearls Ring -->
-                            <circle cx="0" cy="0" r="42" stroke="#fff" stroke-width="3" stroke-dasharray="6,6" fill="none" />
+                            <circle cx="0" cy="0" r="42" stroke="#fff" stroke-width="3" stroke-dasharray="6,6"
+                                fill="none" />
                             <!-- Inner Red Dial -->
                             <circle cx="0" cy="0" r="32" fill="url(#red-grad)" />
                             <!-- Center Golden Heart -->
-                            <path d="M 0 -12 C -6 -18, -16 -12, -16 -2 C -16 8, -4 14, 0 18 C 4 14, 16 8, 16 -2 C 16 -12, 6 -18, 0 -12 Z" fill="url(#gold-grad)" filter="url(#glow)" class="rakhi-heart-pulse" />
+                            <path
+                                d="M 0 -12 C -6 -18, -16 -12, -16 -2 C -16 8, -4 14, 0 18 C 4 14, 16 8, 16 -2 C 16 -12, 6 -18, 0 -12 Z"
+                                fill="url(#gold-grad)" filter="url(#glow)" class="rakhi-heart-pulse" />
                         </g>
                     </svg>
                 </div>
 
-                <h1 class="congrats-title">Happy Raksha Bandhan,<br><span id="final-sister-name" class="sister-name-highlight">My Dear Sister</span> ❤️</h1>
-                
+                <h1 class="congrats-title">Happy Raksha Bandhan,<br><span id="final-sister-name"
+                        class="sister-name-highlight">My Dear Sister</span> ❤️</h1>
+
                 <div class="message-group">
                     <p class="final-letter-paragraph" id="final-letter-p1"></p>
                     <p class="final-letter-paragraph" id="final-letter-p2"></p>
@@ -497,7 +520,7 @@
                     <div class="quote-box" style="width: 100%;">
                         <p id="climax-quote" class="quote-text"></p>
                     </div>
-                    
+
                     <h3 class="final-wishes" id="climax-wishes-text"></h3>
 
                     <div class="final-actions-row">
@@ -557,4 +580,5 @@
     <!-- Custom Script File -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
+
 </html>
